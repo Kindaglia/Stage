@@ -1,5 +1,5 @@
 package com.example.demo;
-import com.example.demo.Utente;
+import com.example.demo.repository.AziendaRepo;
 import com.example.demo.repository.UtenteRepo;
 
 import org.springframework.boot.CommandLineRunner;
@@ -16,13 +16,14 @@ public class DemoApplication {
 
 	//repo utente
 	@Bean
-	CommandLineRunner commandLineRunner(UtenteRepo utenteRepo){
+	CommandLineRunner commandLineRunner(UtenteRepo utenteRepo,AziendaRepo aziendaRepo ){
 		return args -> {
 
 			//create
 			Utente peter = new Utente (2,"cf_test", "cogn","nom","userna");
 			utenteRepo.save(peter);
-
+			Azienda tesla = new Azienda (2,"rosso", "55555");
+			aziendaRepo.save(tesla);
 		};
 	}
 }

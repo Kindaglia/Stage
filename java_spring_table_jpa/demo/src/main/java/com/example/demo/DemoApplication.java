@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import com.example.demo.repository.AziendaRepo;
 import com.example.demo.repository.CaricoRepo;
 import com.example.demo.repository.DocRepo;
+import com.example.demo.repository.Tipo_docRepo;
 import com.example.demo.repository.UtenteRepo;
 import com.example.demo.repository.Utente_aziendaRepo;  
 
@@ -27,7 +28,7 @@ public class DemoApplication {
 	@Bean
 	CommandLineRunner commandLineRunner(UtenteRepo utenteRepo,AziendaRepo aziendaRepo,
 								DocRepo docRepo,Utente_aziendaRepo utente_aziendaRepo,
-								CaricoRepo caricoRepo ){
+								CaricoRepo caricoRepo, Tipo_docRepo tipo_docRepo ){
 		return args -> {
 
 			//create
@@ -49,6 +50,8 @@ public class DemoApplication {
 			Carico crrepo = new Carico(1,date1,10L,date2,"stato","idtc","ploadd");
 			caricoRepo.save(crrepo);
 
+			Tipo_doc tdoc = new Tipo_doc(1,"testmome","descrizione bella");
+			tipo_docRepo.save(tdoc);
 
 
 		};

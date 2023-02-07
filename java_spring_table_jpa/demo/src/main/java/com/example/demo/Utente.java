@@ -4,17 +4,26 @@ import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.criteria.CriteriaBuilder.In;
-import com.example.demo.Utente_azienda;
 
-import antlr.collections.List;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
+@ToString
+@EqualsAndHashCode
+@Setter
+@Getter
 @Entity
+@NoArgsConstructor
 public class Utente {
     // campi che ci serviranno
     @Id //set id in primary key
+    @GeneratedValue
     private Integer id;
     private String cf;
     private String cognome;
@@ -26,6 +35,14 @@ public class Utente {
     private Set<Utente_azienda> idu_fk;
 
 
+
+    public Utente(Integer id, String cf, String cognome, String nome, String username) {
+        this.id = id;
+        this.cf = cf;
+        this.cognome = cognome;
+        this.nome = nome;
+        this.username = username;
+    }
     public Set<Utente_azienda> getIud_fk() {
         return idu_fk;
     }

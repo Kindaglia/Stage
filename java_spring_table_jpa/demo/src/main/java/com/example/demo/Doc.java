@@ -5,7 +5,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString
+@EqualsAndHashCode
+@Setter
+@Getter
 @Entity
+@NoArgsConstructor
 public class Doc {
     @Id //set id in primary key
     private Integer id;
@@ -22,6 +33,14 @@ public class Doc {
     @JoinColumn(name="id_tipo_doc")
     private Tipo_doc id_tipo_doc;
 
+    public Doc(Integer id) {
+        this.id = id;
+    }
 
+
+
+
+
+    
     
 }

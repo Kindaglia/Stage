@@ -23,7 +23,6 @@ import lombok.ToString;
 public class Utente {
     // campi che ci serviranno
     @Id //set id in primary key
-    @GeneratedValue
     private Integer id;
     private String cf;
     private String cognome;

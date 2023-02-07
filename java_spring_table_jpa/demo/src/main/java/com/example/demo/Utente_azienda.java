@@ -1,9 +1,13 @@
 package com.example.demo;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Utente_azienda {
@@ -18,29 +22,8 @@ public class Utente_azienda {
     @JoinColumn(name="ida")
     private Azienda azienda_ida;
 
-    
-    
-
-
-    public Utente getUtente_idu() {
-        return utente_idu;
-    }
-    public void setUtente_idu(Utente utente_idu) {
-        this.utente_idu = utente_idu;
-    }
-    public Azienda getUtente_ida() {
-        return azienda_ida;
-    }
-    public void setUtente_ida(Utente utente_ida) {
-        this.azienda_ida = azienda_ida;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "id_utente_dest",fetch = FetchType.EAGER)
+    private Set<Doc> id_utente_dest;
     
     
 }

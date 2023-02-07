@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 public class Doc {
     @Id //set id in primary key
     private Integer id;
-    private Integer id_tipo_doc;
     
     @ManyToOne
     @JoinColumn(name="id_utente_dest")
@@ -18,6 +17,10 @@ public class Doc {
     @ManyToOne
     @JoinColumn(name="idc")
     private Carico idc;
+
+    @ManyToOne
+    @JoinColumn(name="id_tipo_doc")
+    private Tipo_doc id_tipo_doc;
 
 
     

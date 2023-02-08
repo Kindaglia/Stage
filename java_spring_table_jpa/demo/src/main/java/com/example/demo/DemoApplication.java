@@ -1,6 +1,6 @@
 package com.example.demo;
-
-
+import java.util.List;
+import java.util.Optional;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -9,6 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.example.demo.repository.AziendaRepo;
 import com.example.demo.repository.CaricoRepo;
@@ -32,11 +33,14 @@ public class DemoApplication {
 		return args -> {
 
 			//create
+			
 			Utente peter = new Utente (3,"cf_test", "cogn","nom","userna");
 			utenteRepo.save(peter);
+			Utente test = new Utente (2,"asdasd", "dasd","dsad","dsad");
+			utenteRepo.save(test);
 			Azienda tesla = new Azienda (3,"rosso", "55555");
 			aziendaRepo.save(tesla);
-			
+			/*
 			Utente_azienda utaz = new Utente_azienda(1,peter,tesla);
 			utente_aziendaRepo.save(utaz);
 
@@ -52,9 +56,10 @@ public class DemoApplication {
 			Tipo_doc tdoc = new Tipo_doc(10,"testmome","descrizione bella");
 			tipo_docRepo.save(tdoc);
 
-
 			Doc docc = new Doc (10,crrepo,tdoc);
 			docRepo.save(docc);
+
+			*/
 
 
 		};

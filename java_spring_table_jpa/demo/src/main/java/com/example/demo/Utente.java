@@ -7,12 +7,14 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+@Data
 @ToString
 @EqualsAndHashCode
 @Setter
@@ -32,7 +34,7 @@ public class Utente {
     @OneToMany(mappedBy = "idu",fetch = FetchType.EAGER)
     private Set<Utente_azienda> idu;
 
-
+    
 
     public Utente(Integer id, String cf, String cognome, String nome, String username) {
         this.id = id;

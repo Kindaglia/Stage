@@ -55,13 +55,6 @@ public class DemoApplication {
 
 			Doc docc = new Doc (10,crrepo,tdoc);
 			docRepo.save(docc);
-			
-			Utente ted = new Utente (3,"cf_test", "cogn","nom","userna");
-			Azienda ford = new Azienda (3,"rosso", "55555");
-			Utente_azienda ut_az = new Utente_azienda(1,ted,ford);
-			
-			Doc docc2 = new Doc (3,ut_az,crrepo,tdoc);
-			docRepo.save(docc2);
 
 
 		};

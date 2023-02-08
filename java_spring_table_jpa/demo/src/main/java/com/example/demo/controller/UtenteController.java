@@ -20,7 +20,7 @@ public class UtenteController {
     @Autowired
     private UtenteRepo utenteRepo;
 
-    // chiamaete get
+    // chiamaete get, tutti gli utenti
     @GetMapping("/utenti")
     public List<Utente> getUtenti(){
         return utenteRepo.findAll();

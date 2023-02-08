@@ -23,11 +23,7 @@ import lombok.ToString;
 public class Tipo_doc {
     @Id
     private Integer id;
-
-    @Column(name = "descrizione",nullable=false, length=255)
     private String descrizione;
-
-    @Column(name = "nome",nullable=false, length=255)
     private String nome;
 
     @OneToMany(mappedBy = "id_tipo_doc",fetch = FetchType.EAGER)

@@ -27,21 +27,23 @@ public class Utente_azienda {
 
     @ManyToOne
     @JoinColumn(name="idu")
-    private Utente utente_idu;
+    private Utente idu;
 
     @ManyToOne
     @JoinColumn(name="ida")
-    private Azienda azienda_ida;
+    private Azienda ida;
 
     @OneToMany(mappedBy = "id_utente_dest",fetch = FetchType.EAGER)
     private Set<Doc> id_utente_dest;
 
-    public Utente_azienda(Integer id, Utente utente_idu, Azienda azienda_ida) {
+    public Utente_azienda(Integer id, Utente idu, Azienda ida) {
         this.id = id;
-        this.utente_idu = utente_idu;
-        this.azienda_ida = azienda_ida;
+        this.idu = idu;
+        this.ida = ida;
     }
 
+    
+    
     
     
     

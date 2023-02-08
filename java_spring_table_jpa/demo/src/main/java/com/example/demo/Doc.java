@@ -33,10 +33,23 @@ public class Doc {
     @JoinColumn(name="id_tipo_doc")
     private Tipo_doc id_tipo_doc;
 
-    public Doc(Integer id) {
+    public Doc(Integer id, Carico idc, Tipo_doc id_tipo_doc) {
         this.id = id;
+        this.idc = idc;
+        this.id_tipo_doc = id_tipo_doc;
     }
 
+    public Doc(Integer id, Utente_azienda id_utente_dest, Carico idc, Tipo_doc id_tipo_doc) {
+        this.id = id;
+        this.id_utente_dest = id_utente_dest;
+        this.idc = idc;
+        this.id_tipo_doc = id_tipo_doc;
+    }
+
+   
+    
+
+   
 
 
 

@@ -26,8 +26,8 @@ public class Azienda {
     private String piva;
 
 
-    @OneToMany(mappedBy = "azienda_ida",fetch = FetchType.EAGER)
-    private Set<Utente_azienda> ida_fk;
+    @OneToMany(mappedBy = "ida",fetch = FetchType.EAGER)
+    private Set<Utente_azienda> ida;
 
     //contructors
     public Azienda(Integer id, String logo, String piva) {
@@ -36,29 +36,4 @@ public class Azienda {
         this.piva = piva;
     }
 
-    public Integer getId() {
-        return id;
-    }
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    public String getLogo() {
-        return logo;
-    }
-    public void setLogo(String logo) {
-        this.logo = logo;
-    }
-    public String getPiva() {
-        return piva;
-    }
-    public void setPiva(String piva) {
-        this.piva = piva;
-    }
-    public Set<Utente_azienda> getIda_fk() {
-        return ida_fk;
-    }
-    public void setIda_fk(Set<Utente_azienda> ida_fk) {
-        this.ida_fk = ida_fk;
-    }
 }

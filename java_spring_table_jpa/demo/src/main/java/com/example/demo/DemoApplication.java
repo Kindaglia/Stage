@@ -36,8 +36,7 @@ public class DemoApplication {
 			utenteRepo.save(peter);
 			Azienda tesla = new Azienda (3,"rosso", "55555");
 			aziendaRepo.save(tesla);
-			Doc docc = new Doc (2584);
-			docRepo.save(docc);
+			
 			Utente_azienda utaz = new Utente_azienda(1,peter,tesla);
 			utente_aziendaRepo.save(utaz);
 
@@ -47,11 +46,22 @@ public class DemoApplication {
 			String sDate2="2050-6-14";  
 			Date date2  = Date.valueOf(sDate2);
 
-			Carico crrepo = new Carico(1,date1,10L,date2,"stato","idtc","ploadd");
+			Carico crrepo = new Carico(1,date1,10L,date2,"stato",5,5);
 			caricoRepo.save(crrepo);
 
-			Tipo_doc tdoc = new Tipo_doc(1,"testmome","descrizione bella");
+			Tipo_doc tdoc = new Tipo_doc(10,"testmome","descrizione bella");
 			tipo_docRepo.save(tdoc);
+
+
+			Doc docc = new Doc (10,crrepo,tdoc);
+			docRepo.save(docc);
+			
+			Utente ted = new Utente (3,"cf_test", "cogn","nom","userna");
+			Azienda ford = new Azienda (3,"rosso", "55555");
+			Utente_azienda ut_az = new Utente_azienda(1,ted,ford);
+			
+			Doc docc2 = new Doc (3,ut_az,crrepo,tdoc);
+			docRepo.save(docc2);
 
 
 		};

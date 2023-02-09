@@ -7,6 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cascade;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -32,6 +34,7 @@ public class Utente {
 
 
     @OneToMany(mappedBy = "idu",fetch = FetchType.EAGER)
+    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
     private Set<Utente_azienda> idu;
 
     

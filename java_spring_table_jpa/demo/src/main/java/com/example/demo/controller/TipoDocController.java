@@ -1,5 +1,4 @@
 
-
 package com.example.demo.controller;
 
 import java.util.List;
@@ -12,35 +11,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Carico;
-import com.example.demo.repository.CaricoRepo;
-
-
+import com.example.demo.Tipo_doc;
+import com.example.demo.repository.Tipo_docRepo;
 
 
 @RestController
-public class CaricoController {
+public class TipoDocController {
     
     @Autowired
-    private CaricoRepo caricoRepo;
+    private Tipo_docRepo tipo_docRepo;
 
     // chiamaete get, tutti gli utenti
-    @GetMapping("/carichi")
-    public List<Carico> getCarichi(){
-        return caricoRepo.findAll();
+    @GetMapping("/tipDocs")
+    public List<Tipo_doc> getCarichi(){
+        return tipo_docRepo.findAll();
     }
 
 
     //il path in {} non è a caso 
-    @GetMapping("/carichi/{CaricoId}")
-    public Carico getCarichiById(@PathVariable Integer CaricoId){
-        return caricoRepo.findById(CaricoId).orElseThrow();
+    @GetMapping("/tipDocs/{TipDocsId}")
+    public Tipo_doc gettipDocs(@PathVariable Integer TipDocsId){
+        return tipo_docRepo.findById(TipDocsId).orElseThrow();
+      
     }
 
     /// chiamate post 
-    @PostMapping("/carichi")
-    public Carico createCarichi(@RequestBody Carico newCarico){
-        return caricoRepo.save(newCarico);
+    @PostMapping("/tipDocs")
+    public Tipo_doc createtipDocs(@RequestBody Tipo_doc newtipDocs){
+        return tipo_docRepo.save(newtipDocs);
     }
 
 

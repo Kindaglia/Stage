@@ -9,6 +9,8 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Cascade;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -33,8 +35,8 @@ public class Utente {
     private String username;
 
 
-    @OneToMany(mappedBy = "idu",fetch = FetchType.EAGER)
-    @Cascade(value = org.hibernate.annotations.CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(targetEntity = Utente_azienda.class, mappedBy = "idu", fetch = FetchType.LAZY)
     private Set<Utente_azienda> idu;
 
     

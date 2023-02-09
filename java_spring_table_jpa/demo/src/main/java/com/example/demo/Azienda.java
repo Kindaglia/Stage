@@ -7,6 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +28,8 @@ public class Azienda {
     private String piva;
 
 
-    @OneToMany(mappedBy = "ida",fetch = FetchType.EAGER)
+    @JsonIgnore
+    @OneToMany(targetEntity = Utente_azienda.class, mappedBy = "ida", fetch = FetchType.LAZY)
     private Set<Utente_azienda> ida;
 
     //contructors

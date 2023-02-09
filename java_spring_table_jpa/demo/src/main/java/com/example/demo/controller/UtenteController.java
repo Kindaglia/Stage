@@ -23,7 +23,7 @@ public class UtenteController {
     // chiamaete get, tutti gli utenti
     @GetMapping("/utenti")
     public List<Utente> getUtenti(){
-        return utenteRepo.findWithJoin();
+        return utenteRepo.findAll();
     }
 
 

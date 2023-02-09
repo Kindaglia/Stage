@@ -10,7 +10,7 @@ import com.example.demo.Utente;
 
 @Repository
 public interface UtenteRepo extends JpaRepository<Utente, Integer> {
-    @Query(value = "SELECT * FROM utente", nativeQuery = true)
-    List<Utente> findWithJoin();
+    /* @Query(value = "SELECT * FROM utente", nativeQuery = true)
+    List<Utente> findWithJoin(); */
 
 }

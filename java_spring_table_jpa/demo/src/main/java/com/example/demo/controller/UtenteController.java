@@ -62,9 +62,10 @@ public class UtenteController {
     }
 
     @DeleteMapping("/utente/{UtenteId}")
-    public String deleteById(@PathVariable  Integer UtenteId) {
+    public Utente deleteById(@PathVariable  Integer UtenteId) {
+        Utente pippo = utenteRepo.findById(UtenteId).get();
         utenteRepo.deleteById(UtenteId);
-       return "Delete by id called";
+        return pippo;
     }
 
     

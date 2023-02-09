@@ -3,9 +3,13 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +44,29 @@ public class UtenteController {
         return utenteRepo.save(newUtente);
     }
 
+    //put, update utenti
+    @PutMapping("/utente/{id}")
+    Utente replaceEmployee(@RequestBody Utente newUtente, @PathVariable Integer id) {
+
+        return utenteRepo.findById(id)
+            .map(utente -> {
+                utente.setCf(newUtente.getCf());
+                utente.setCognome(newUtente.getCognome());
+                utente.setNome(newUtente.getNome());
+                utente.setUsername(newUtente.getUsername());
+                return utenteRepo.save(utente);
+            })
+            .orElseGet(() -> {
+                return utenteRepo.save(newUtente);
+            });
+    }
+
+    @DeleteMapping("/utente/{UtenteId}")
+    public String deleteById(@PathVariable  Integer UtenteId) {
+        utenteRepo.deleteById(UtenteId);
+       return "Delete by id called";
+    }
+
+    
 
 }

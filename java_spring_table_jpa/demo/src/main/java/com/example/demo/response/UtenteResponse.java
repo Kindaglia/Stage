@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.entities.Utente;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Generated;
+
 
 @Component
 public class UtenteResponse {
@@ -21,7 +23,7 @@ public class UtenteResponse {
         this.utente = utente;
     }
 
-
+    
     public void setUtenti(List<Utente> utenti) {
         this.utenti = utenti;
     }
@@ -29,6 +31,20 @@ public class UtenteResponse {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+
+    public Utente getUtente() {
+        return utente;
+    }
+
+    public List<Utente> getUtenti() {
+        return utenti;
+    }
+
+
+    public String getMessage() {
+        return message;
     }
 
     

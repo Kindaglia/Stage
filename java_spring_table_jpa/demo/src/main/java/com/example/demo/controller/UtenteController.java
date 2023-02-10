@@ -3,7 +3,9 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,8 @@ import com.example.demo.service.UtenteService;
 @RestController
 public class UtenteController {
     
+    @Autowired 
+    private BeanFactory beanFactory;
     @Autowired
     private UtenteRepo utenteRepo;
 
@@ -35,12 +39,17 @@ public class UtenteController {
     
 
     // chiamaete get, tutti gli utenti
-    @GetMapping("/utenti")
-    public UtenteResponse getUtenti(){
-        UtenteComGet utenteComGet = new UtenteComGet();
-        utenteResponse =  utenteComGet.Execute();    
+    @GetMapping(value="/utenti",produces = "application/json")
+    public UtenteResponse  getUtenti(){
+        UtenteComGet utenteComGet = beanFactory.getBean(UtenteComGet.class); //, variabili
+        utenteResponse =  utenteComGet.Execute();  
+        System.out.println(utenteResponse);  
         return utenteResponse; //body di risposta
+        
+        
     }
+
+
 
 
     //il path in {} non è a caso 

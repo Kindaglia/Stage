@@ -4,7 +4,6 @@ import java.lang.reflect.Executable;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.example.demo.service.UtenteService;
@@ -12,7 +11,6 @@ import com.example.demo.entities.Utente;
 import com.example.demo.response.UtenteResponse;
 
 @Component
-@Scope("prototype")
 public class UtenteComGet {
     @Autowired
     private UtenteService utenteService;
@@ -35,16 +33,15 @@ public class UtenteComGet {
 
 
     public UtenteResponse Execute(){
-        if(CanExecute()){
-            return DoExecute();
+        if(!CanExecute()){
+            String messaggioErrorre = "non puoi farlo";
+            utenteResponse.setMessage(messaggioErrorre);
+            return utenteResponse;
         }
-        String messaggioErrorre = "non puoi farlo";
-        utenteResponse.setMessage(messaggioErrorre);
-        return utenteResponse;
+        return DoExecute();
 
 
     }
-
     
         
     

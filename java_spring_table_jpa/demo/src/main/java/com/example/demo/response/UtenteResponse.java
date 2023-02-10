@@ -47,6 +47,13 @@ public class UtenteResponse {
         return message;
     }
 
+
+    @Override
+    public String toString() {
+        return "UtenteResponse [utente=" + utente + ", utenti=" + utenti + ", message=" + message + "]";
+    }
+
+    
     
 
 

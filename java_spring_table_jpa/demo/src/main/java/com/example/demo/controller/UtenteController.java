@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.command.utente.UtenteComGet;
+import com.example.demo.command.utente.UtenteCommandGetById;
 import com.example.demo.entities.Utente;
 import com.example.demo.repository.UtenteRepo;
 import com.example.demo.response.UtenteResponse;
@@ -32,30 +33,28 @@ public class UtenteController {
     @Autowired
     private UtenteService utenteService;
 
-    @Autowired
-    private UtenteResponse utenteResponse;
-
-
     
 
     // chiamaete get, tutti gli utenti
     @GetMapping(value="/utenti",produces = "application/json")
-    public UtenteResponse  getUtenti(){
+    public ResponseEntity<UtenteResponse>  getUtenti(){
+        UtenteResponse utenteResponse = new UtenteResponse();
         UtenteComGet utenteComGet = beanFactory.getBean(UtenteComGet.class); //, variabili
         utenteResponse =  utenteComGet.Execute();  
-        System.out.println(utenteResponse);  
-        return utenteResponse; //body di risposta
+        System.out.println(utenteResponse.toString());  
+        return ResponseEntity.ok(utenteResponse); //body di risposta
         
         
     }
 
-
-
-
     //il path in {} non è a caso 
-    @GetMapping("/utente/{UtenteId}")
-    public Utente getUtente(@PathVariable Integer UtenteId){
-        return utenteRepo.findById(UtenteId).orElseThrow();
+    @GetMapping(value="/utente/{UtenteId}",produces = "application/json")
+    public ResponseEntity<UtenteResponse> getUtente(@PathVariable Integer UtenteId){
+        UtenteResponse utenteResponseId = new UtenteResponse();
+        UtenteCommandGetById utenteCommandGetById = beanFactory.getBean(UtenteCommandGetById.class,UtenteId); //, variabili
+        utenteResponseId =  utenteCommandGetById.Execute();  
+        System.out.println(utenteResponseId.toString());  
+        return ResponseEntity.ok(utenteResponseId); //body di risposta
       
     }
 

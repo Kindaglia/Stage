@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.command.utente.UtenteComGet;
 import com.example.demo.entities.Utente;
 import com.example.demo.repository.UtenteRepo;
+import com.example.demo.response.UtenteResponse;
 import com.example.demo.service.UtenteService;
 
 
@@ -26,10 +28,18 @@ public class UtenteController {
     @Autowired
     private UtenteService utenteService;
 
+    @Autowired
+    private UtenteResponse utenteResponse;
+
+
+    
+
     // chiamaete get, tutti gli utenti
     @GetMapping("/utenti")
-    public List<Utente> getUtenti(){
-        return utenteService.getAllUtenti();
+    public UtenteResponse getUtenti(){
+        UtenteComGet utenteComGet = new UtenteComGet();
+        utenteResponse =  utenteComGet.Execute();    
+        return utenteResponse; //body di risposta
     }
 
 

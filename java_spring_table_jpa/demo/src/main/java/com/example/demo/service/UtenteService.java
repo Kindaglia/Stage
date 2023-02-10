@@ -13,10 +13,9 @@ import com.example.demo.service.UtenteService;
 
 @Service
 public class UtenteService {
-
-    private UtenteRepo utenteRepo;
-
     @Autowired
+    private UtenteRepo utenteRepo; 
+    
     public UtenteService(UtenteRepo utenteRepo) {
         this.utenteRepo = utenteRepo;
     }
@@ -42,6 +41,7 @@ public class UtenteService {
         utenteRepo.deleteById(id);
     }
 
+    public UtenteService(){}
 
     
 }

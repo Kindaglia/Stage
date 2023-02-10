@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.entities;
 
 import java.util.Set;
 
@@ -34,7 +34,6 @@ public class Utente {
     private String nome;
     private String username;
 
-
     @JsonIgnore
     @OneToMany(targetEntity = Utente_azienda.class, mappedBy = "idu", fetch = FetchType.LAZY)
     private Set<Utente_azienda> idu;
@@ -48,6 +47,14 @@ public class Utente {
         this.nome = nome;
         this.username = username;
     }
+
+
+
+    public Utente(Integer id) {
+        this.id = id;
+    }
+
+    
 
     
 }

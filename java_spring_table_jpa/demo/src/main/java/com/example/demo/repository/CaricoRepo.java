@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.Carico;
+import com.example.demo.entities.Carico;
 
 @Repository
 public interface CaricoRepo  extends JpaRepository<Carico, Integer>{

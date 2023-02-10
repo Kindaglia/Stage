@@ -11,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
+import com.example.demo.entities.Azienda;
+import com.example.demo.entities.Utente;
 import com.example.demo.repository.AziendaRepo;
 import com.example.demo.repository.CaricoRepo;
 import com.example.demo.repository.DocRepo;

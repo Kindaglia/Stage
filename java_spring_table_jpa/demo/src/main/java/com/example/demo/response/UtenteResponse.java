@@ -3,14 +3,15 @@ package com.example.demo.response;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.entities.Utente;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Generated;
 
-
 @Component
+@ResponseBody
 public class UtenteResponse {
     private Utente utente;
     private List<Utente> utenti;

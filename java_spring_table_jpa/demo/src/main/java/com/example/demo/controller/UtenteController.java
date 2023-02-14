@@ -41,7 +41,7 @@ public class UtenteController {
         UtenteResponse utenteResponse = new UtenteResponse();
         UtenteComGet utenteComGet = beanFactory.getBean(UtenteComGet.class); //, variabili
         utenteResponse =  utenteComGet.Execute();  
-        System.out.println(utenteResponse.toString());  
+        // System.out.println(utenteResponse.toString());  
         return ResponseEntity.ok(utenteResponse); //body di risposta
         
         
@@ -53,7 +53,7 @@ public class UtenteController {
         UtenteResponse utenteResponseId = new UtenteResponse();
         UtenteCommandGetById utenteCommandGetById = beanFactory.getBean(UtenteCommandGetById.class,UtenteId); //, variabili
         utenteResponseId =  utenteCommandGetById.Execute();  
-        System.out.println(utenteResponseId.toString());  
+        // System.out.println(utenteResponseId.toString());  
         return ResponseEntity.ok(utenteResponseId); //body di risposta
       
     }

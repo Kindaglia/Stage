@@ -4,9 +4,8 @@ import com.youtube.jwt.dao.UserDao;
 import com.youtube.jwt.entity.JwtRequest;
 import com.youtube.jwt.entity.JwtResponse;
 import com.youtube.jwt.entity.User;
-import com.youtube.jwt.util.JwtUtil;
+import com.youtube.jwt.util.JwtUtils;
 
-import org.aspectj.apache.bcel.classfile.Module.Require;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -18,16 +17,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.beans.JavaBean;
 import java.util.HashSet;
 import java.util.Set;
-
 
 @Service
 public class JwtService implements UserDetailsService {
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private JwtUtils jwtUtil;
 
     @Autowired
     private UserDao userDao;
